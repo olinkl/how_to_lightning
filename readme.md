@@ -41,21 +41,26 @@ we use bitcoind
 https://github.com/bitcoin/bitcoin/blob/master/doc/dependencies.md
 
 ## install required package
+```bash
 apt update
 apt install autoconf libboost-all-dev libssl-dev libtool libevent-dev libminiupnpc-dev pkg-config -y
+```
 
-# Tell your system where to find, for example db4.8
-## building libdb
+### building & install libdb
+```bash
 wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz'
 tar -xzvf db-4.8.30.NC.tar.gz
 cd db-4.8.30.NC/build_unix/
 ../dist/configure --prefix=/usr/local --enable-cxx
 make
 sudo make install
+```
 
-## protocol buffer
+### building & install protobuf
 ### install via apt should be v3.0.0
+```bash
 apt-get install libprotobuf-dev protobuf-compiler
+```
 or
 ### if you want exact version
 ```bash
@@ -67,7 +72,7 @@ git submodule update --init --recursive
 make
 make check
 sudo make install
-sudo ldconfig # refresh shared library cache.
+sudo ldconfig # refresh shared library cache for linux.
 ```
 
 ## exports for bitcoind compilation
