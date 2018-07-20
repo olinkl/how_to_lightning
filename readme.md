@@ -14,8 +14,10 @@ Please only run, this in public internet, if you know what you are doing
 # basis
 
 ## install some tools
+```bash
 apt update && apt upgrade
 apt-get install git build-essential htop tmux -y
+```
 
 ## linux
 here we use debian. There is no perfect distribution. Debian as a good security focus and stable environment
