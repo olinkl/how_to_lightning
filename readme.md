@@ -20,8 +20,9 @@ apt-get install git build-essential htop tmux -y
 ```
 
 ## linux
-here we use debian. There is no perfect distribution. Debian as a good security focus and stable environment
-when interacting with this tutoial. Your default user should not be - root.
+here, we use debian. There is no perfect distribution. Debian as a good security focus and stable environment.
+
+When interacting with this tutorial. Your default user should not be *root*.
 
 ## firewall
 * blocks all ports except SSH/bitcoind(8333)/lightningd
@@ -32,12 +33,12 @@ Excellent tutorial are available in the web.
 # first - bitcoin
 
 ## impl
-Bitcoin as 3 majors implementation for server
+Bitcoin as 3 majors implementations for server
 * bitcoind maintain by bitcoin core developers and bitcoin developers
 * btcd maintain by The btcsuite developers
 * libbitcoin
 
-we use bitcoind
+We use bitcoind
 
 ## deps version
 https://github.com/bitcoin/bitcoin/blob/master/doc/dependencies.md
@@ -49,6 +50,8 @@ apt install autoconf libboost-all-dev libssl-dev libtool libevent-dev libminiupn
 ```
 
 ### building & install libdb
+this is the library that store chain history.
+
 ```bash
 wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz'
 tar -xzvf db-4.8.30.NC.tar.gz
