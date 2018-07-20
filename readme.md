@@ -1,6 +1,7 @@
 # Running a Lightning node
 
 # this tutorial is provided as learning purpose
+Nothing special
 Please only run, this in public internet, if you know what you are doing
 
 # requirements
@@ -14,7 +15,7 @@ Please only run, this in public internet, if you know what you are doing
 
 ## install some tools
 apt update && apt upgrade
-apt-get install git build-essential htop -y
+apt-get install git build-essential htop tmux -y
 
 ## linux
 here we use debian. There is no perfect distribution. Debian as a good security focus and stable environment
@@ -57,6 +58,7 @@ sudo make install
 apt-get install libprotobuf-dev protobuf-compiler
 or
 ### if you want exact version
+```bash
 git clone https://github.com/google/protobuf.git
 git checkout v2.6.1
 git submodule update --init --recursive
@@ -66,11 +68,14 @@ make
 make check
 sudo make install
 sudo ldconfig # refresh shared library cache.
+```
 
 ## exports for bitcoind compilation
-$ export BDB_INCLUDE_PATH="/usr/local/BerkeleyDB.4.8/include"
-$ export BDB_LIB_PATH="/usr/local/BerkeleyDB.4.8/lib"
-$ ln -s /usr/local/BerkeleyDB.4.8/lib/libdb-4.8.so /usr/local/lib/libdb-4.8.so
+```bash
+export BDB_INCLUDE_PATH="/usr/local/BerkeleyDB.4.8/include"
+export BDB_LIB_PATH="/usr/local/BerkeleyDB.4.8/lib"
+ln -s /usr/local/BerkeleyDB.4.8/lib/libdb-4.8.so /usr/local/lib/libdb-4.8.so
+```
 
 # compiling bitcoind
 ```bash
@@ -84,12 +89,14 @@ sudo make install
 
 without => self explaining
 enable-cxx => because client have c++ code
-disable shared => we don't want binary use shared library, for security reason
+disable shared => as you like if you prefer portable or shared libs
 with-pic => position independant code
 prefix => where the binary is installed
 
 ## create user
+```bash
 adduser bitcoin
+```
 
 ## create your datadir
 target a place with sufficient space, here we just do it in /opt
@@ -141,9 +148,11 @@ bitcoin-cli -datadir=/opt/bitcoin-data getblockcount
 
 ## new deps to install
 
+```bash
 sudo apt-get install -y \
   libgmp-dev \
   libsqlite3-dev python python3 net-tools zlib1g-dev
+```
 
 ## first we clone the project
 
@@ -152,12 +161,15 @@ git clone https://github.com/ElementsProject/lightning.git
 git checkout v0.6
 ```
 
+## then build it
 ```bash
 make
 sudo make install
 ```
 
+```bash
 chown -R bitcoin:bitcoin /opt/clightning/
+```
 
 # run lightningd in testnet
 
@@ -174,8 +186,6 @@ su bitcoin
 ```bash
 lightning-cli --lightning-dir=/opt/bitcoin-data getinfo
 ```
-
-
 
 # what next ?
 * systemd
