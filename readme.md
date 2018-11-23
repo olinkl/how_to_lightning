@@ -70,6 +70,7 @@ or
 ### if you want exact version
 ```bash
 git clone https://github.com/google/protobuf.git
+cd protobuf
 git checkout v2.6.1
 git submodule update --init --recursive
 ./autogen.sh
@@ -90,6 +91,7 @@ ln -s /usr/local/BerkeleyDB.4.8/lib/libdb-4.8.so /usr/local/lib/libdb-4.8.so
 # compiling bitcoind
 ```bash
 git clone https://github.com/bitcoin/bitcoin.git
+cd bitcoin
 git checkout v0.16.1
 ./autogen.sh
 ./configure CXXFLAGS="--param ggc-min-expand=1 --param ggc-min-heapsize=32768" --enable-cxx --disable-shared --with-pic --without-gui --prefix=/usr/local/ LDFLAGS="-L$BDB_LIB_PATH -L/usr/local/lib -L." CPPFLAGS="-I$BDB_INCLUDE_PATH -I/include/google/protobuf"
