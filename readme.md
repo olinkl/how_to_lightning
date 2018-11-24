@@ -92,7 +92,7 @@ ln -s /usr/local/BerkeleyDB.4.8/lib/libdb-4.8.so /usr/local/lib/libdb-4.8.so
 ```bash
 git clone https://github.com/bitcoin/bitcoin.git
 cd bitcoin
-git checkout v0.16.1
+git checkout v0.16.3
 ./autogen.sh
 ./configure CXXFLAGS="--param ggc-min-expand=1 --param ggc-min-heapsize=32768" --enable-cxx --disable-shared --with-pic --without-gui --prefix=/usr/local/ LDFLAGS="-L$BDB_LIB_PATH -L/usr/local/lib -L." CPPFLAGS="-I$BDB_INCLUDE_PATH -I/include/google/protobuf"
 make
