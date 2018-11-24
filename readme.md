@@ -129,7 +129,7 @@ cp bitcoin.conf /opt/bitcoin-data
 
 ### generate rpc access
 
-From the bitcoin repository's root, run the following command:
+From the bitcoin repository's root, run the following command (replacing `{{login-name}}` with the login name of your choice):
 ```bash
 ./share/rpcauth/rpcauth.py {{login-name}}
 ```
