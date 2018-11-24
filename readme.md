@@ -119,16 +119,21 @@ chown bitcoin:bitcoin /opt/bitcoin-data
 
 ## dropin your bitcoin.conf
 
-look at bitcoin.conf
-rpc access is not setup.
-make sure you have rpc/zmq inteface and txindex=1
+Look at bitcoin.conf, rpc access is not setup.
+Make sure you have rpc/zmq interface and txindex=1.
+Copy bitcoin.conf in the data directory.
+
+```bash
+cp bitcoin.conf /opt/bitcoin-data
+```
 
 ### generate rpc access
+
+From the bitcoin repository's root, run the following command:
 ```bash
-$./share/rpcauth/rpcauth.py {{login-name}}
+./share/rpcauth/rpcauth.py {{login-name}}
 ```
-this script will gave you rpc access line to replace, the sample rpcauth line in bitcoin.conf
-and give you password to be used to connect to rpc socket
+This script will gave you the rpc access line to replace in bitcoin.conf and give you password to be used to connect to rpc socket.
 
 ### launch bitcoin daemon - bitcoind
 as user bitcoin, launch bitcoin daemon
