@@ -175,6 +175,7 @@ sudo apt-get install -y \
 
 ```bash
 git clone https://github.com/ElementsProject/lightning.git
+cd lightning
 git checkout v0.6
 ```
 
