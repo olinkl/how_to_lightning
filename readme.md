@@ -70,6 +70,7 @@ or
 ### if you want exact version
 ```bash
 git clone https://github.com/google/protobuf.git
+cd protobuf
 git checkout v2.6.1
 git submodule update --init --recursive
 ./autogen.sh
@@ -90,7 +91,8 @@ ln -s /usr/local/BerkeleyDB.4.8/lib/libdb-4.8.so /usr/local/lib/libdb-4.8.so
 # compiling bitcoind
 ```bash
 git clone https://github.com/bitcoin/bitcoin.git
-git checkout v0.16.1
+cd bitcoin
+git checkout v0.16.3
 ./autogen.sh
 ./configure CXXFLAGS="--param ggc-min-expand=1 --param ggc-min-heapsize=32768" --enable-cxx --disable-shared --with-pic --without-gui --prefix=/usr/local/ LDFLAGS="-L$BDB_LIB_PATH -L/usr/local/lib -L." CPPFLAGS="-I$BDB_INCLUDE_PATH -I/include/google/protobuf"
 make
@@ -117,16 +119,21 @@ chown bitcoin:bitcoin /opt/bitcoin-data
 
 ## dropin your bitcoin.conf
 
-look at bitcoin.conf
-rpc access is not setup.
-make sure you have rpc/zmq inteface and txindex=1
+Look at bitcoin.conf, rpc access is not setup.
+Make sure you have rpc/zmq interface and txindex=1.
+Copy bitcoin.conf in the data directory.
+
+```bash
+cp bitcoin.conf /opt/bitcoin-data
+```
 
 ### generate rpc access
+
+From the bitcoin repository's root, run the following command (replacing `{{login-name}}` with the login name of your choice):
 ```bash
-$./share/rpcauth/rpcauth.py {{login-name}}
+./share/rpcauth/rpcauth.py {{login-name}}
 ```
-this script will gave you rpc access line to replace, the sample rpcauth line in bitcoin.conf
-and give you password to be used to connect to rpc socket
+This script will gave you the rpc access line to replace in bitcoin.conf and give you password to be used to connect to rpc socket.
 
 ### launch bitcoin daemon - bitcoind
 as user bitcoin, launch bitcoin daemon
@@ -168,6 +175,7 @@ sudo apt-get install -y \
 
 ```bash
 git clone https://github.com/ElementsProject/lightning.git
+cd lightning
 git checkout v0.6
 ```
 
