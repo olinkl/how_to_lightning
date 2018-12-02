@@ -8,8 +8,8 @@ Please only run, this in public internet, if you know what you are doing
 * mainnet 250go
 * testnet 25go
 * debian stretch
-* bitcoin - v0.16.1
-* lightningd - v0.6
+* bitcoin - v0.16.3
+* lightningd - v0.6.2
 
 # basis
 
@@ -176,7 +176,7 @@ sudo apt-get install -y \
 ```bash
 git clone https://github.com/ElementsProject/lightning.git
 cd lightning
-git checkout v0.6
+git checkout v0.6.2
 ```
 
 ## then build it
